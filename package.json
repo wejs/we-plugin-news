@@ -17,7 +17,9 @@
     "we-core": "wejs/we-core",
     "we-test-tools": "wejs/we-test-tools"
   },
+  "author": "Alberto Souza <contato@albertosouza.net>",
   "license": "MIT",
+  "repository": "wejs/we-plugin-news",
   "keywords": [
     "wejs-plugin"
   ],
