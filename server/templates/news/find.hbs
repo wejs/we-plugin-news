@@ -1,0 +1,37 @@
+<div class="row news-list">
+  <div class="col-md-8">
+    <div class="actions">
+      {{we-action-create-btn 'news' req}}
+      {{rss-btn locals=this}}
+    </div>
+    <div class="row">
+      {{#if data.length}}
+        <div class="col-sm-6">
+          {{#each data}}
+            {{#isPair @key}}
+              {{render-record-teaser modelName='news' record=this locals=..}}
+            {{else}}{{/isPair}}
+          {{/each}}
+        </div>
+        <div class="col-sm-6">
+          {{#each data}}
+            {{#isPair @key}}{{else}}
+              {{render-record-teaser modelName='news' record=this locals=..}}
+            {{/isPair}}
+          {{/each}}
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          {{paginate count=metadata.count limit=query.limit currentPage=query.page req=req}}
+        </div>
+      {{else}}
+        <p class="contents-empty col-md-12">Nenhuma notícia foi encontrada para essa lista.</p>
+      {{/if}}
+    </div>
+
+    {{#region 'content'}}{{/region}}
+  </div>
+
+  <div class="col-md-4">
+    {{#region 'sidebar'}}{{/region}}
+  </div>
+</div>

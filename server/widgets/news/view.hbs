@@ -1,0 +1,26 @@
+{{#if widget.news.length}}
+  {{#ifCond widget.layout "home"}}
+    <div class="container">
+      <div class="row">
+        {{#each widget.news}}
+          <div class="col-md-4 match-grid-col-scroll">
+            <div class="panel panel-default">
+              {{#each featuredImage}}
+                <a href="/news/{{../id}}"><img class="img-responsive" src="{{urls.large}}"></a>
+              {{/each}}
+              <div class="panel-body">
+                <h4><a href="/news/{{id}}">{{title}}</a></h4>
+                <p>
+                  {{{about}}}
+                  <br><a href="/news/{{id}}">leia mais <i class="glyphicon glyphicon-link"></i></a>
+                </p>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  {{else}}
+    {{!-- TODO! what show in sidebar of other locations? --}}
+  {{/ifCond}}
+{{/if}}
