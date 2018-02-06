@@ -13,8 +13,8 @@ module.exports = {
     if (!req.query.sort) {
       res.locals.query.order = [
         ['highlighted', 'DESC'],
-        ['createdAt', 'DESC'],
         ['publishedAt', 'DESC'],
+        ['createdAt', 'DESC'],
         ['id', 'DESC']
       ];
     }

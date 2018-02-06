@@ -1,7 +1,5 @@
 /**
  * Widget news main file
- *
- * See https://github.com/wejs/we-core/blob/master/lib/class/Widget.js for all Widget prototype functions
  */
 
 module.exports = function (projectPath, Widget) {
@@ -27,7 +25,8 @@ module.exports = function (projectPath, Widget) {
       order: [
         ['highlighted', 'DESC'],
         ['publishedAt', 'DESC'],
-        ['createdAt', 'DESC']
+        ['createdAt', 'DESC'],
+        ['id', 'DESC']
       ],
       limit: 4
     })
