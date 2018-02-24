@@ -27,7 +27,7 @@ module.exports = function loadPlugin(projectPath, Plugin) {
       we.router.metatag.add('newsFindAll', newsFindAll);
       we.router.metatag.add('newsFindOne', newsFindOne);
     }
-  }
+  };
 
   /**
    * Plugin fast loader for speed up We.js project bootstrap
@@ -42,7 +42,7 @@ module.exports = function loadPlugin(projectPath, Plugin) {
     we.db.modelsConfigs.news = require('./server/models/news.js')(we);
 
     done();
-  }
+  };
 
   plugin.setCanonicalURL = require('./lib/metatags/setCanonicalURL.js');
 

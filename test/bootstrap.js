@@ -31,7 +31,7 @@ before(function(callback) {
 });
 
 //after all tests
-after(function (callback) {
+after(function () {
 
   we.exit(()=> {
     let tempFolders = [
@@ -45,7 +45,7 @@ after(function (callback) {
       deleteDir( folder, next);
     }, function(err) {
       if (err) throw new Error(err);
-      callback();
+      process.exit();
     });
   });
 
