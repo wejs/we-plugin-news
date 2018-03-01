@@ -3,6 +3,12 @@
     <label for="widget-form-{{type}}-title">{{t 'title'}}</label>
     <input name="title" value="{{title}}" type="text" class="form-control" id="widget-form-{{type}}-title" placeholder="{{t 'widget.title'}}">
   </div>
+
+  <div class="form-group">
+    <label for="widget-form-{{type}}-limit">{{t 'Limit'}}</label>
+    <input required="required" type="text" id="widget-form-{{type}}-limit" name="limit" value="{{configuration.limit}}">
+  </div>
+
   {{{controllFields}}}
   {{#if id}}
     <input type="hidden" name="id" value="{{id}}">
