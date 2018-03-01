@@ -18,7 +18,7 @@ module.exports = function (projectPath, Widget) {
 
     const conf = widget.configuration;
     if (conf && conf.limit && Number(conf.limit)) {
-      limit = conf.limit;
+      limit = Number(conf.limit);
     }
 
     return req.we.db.models.news
