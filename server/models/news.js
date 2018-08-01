@@ -118,13 +118,12 @@ module.exports = function M(we) {
       },
       instanceMethods: {},
       hooks: {
+        beforeValidate(r) {
+          if (!r.highlighted) r.highlighted = 0;
+        },
         beforeCreate(r) {
           if (r.published && !r.publishedAt) {
             r.publishedAt = Date.now();
-          }
-
-          if (!r.highlighted) {
-            r.highlighted = 0;
           }
         },
 
@@ -132,10 +131,6 @@ module.exports = function M(we) {
           if (r.published && !r.publishedAt) {
             // set publishedAt on publish:
             r.publishedAt = Date.now();
-          }
-
-          if (!r.highlighted) {
-            r.highlighted = 0;
           }
         }
       }
