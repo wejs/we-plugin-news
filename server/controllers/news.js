@@ -5,7 +5,10 @@
  */
 module.exports = {
   find(req, res) {
-    if (!req.we.acl.canStatic('access_news_unpublished', req.userRoleNames)) {
+    if (
+      req.accepts('html') ||
+      !req.we.acl.canStatic('access_articles_unpublished', req.userRoleNames)
+    ) {
       res.locals.query.where.published = true;
     }
 
@@ -33,10 +36,19 @@ module.exports = {
     }
 
     return res.locals.Model
-    .findAndCountAll(res.locals.query)
-    .then( (record)=> {
-      res.locals.metadata.count = record.count;
-      res.locals.data = record.rows;
+    .findAll(res.locals.query)
+    .then( (records)=> {
+      return res.locals.Model.count(res.locals.query)
+      .then((count)=> {
+        return {
+          rows: records,
+          count: count
+        };
+      });
+    })
+    .then( (results)=> {
+      res.locals.metadata.count = results.count;
+      res.locals.data = results.rows;
       return res.ok();
     })
     .catch(res.queryError);
