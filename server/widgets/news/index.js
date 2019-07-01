@@ -32,9 +32,12 @@ module.exports = function (projectPath, Widget) {
       limit: limit
     })
     .then( (p)=> {
+      if (!p || !p.length) {
+        widget.hide = true;
+      }
+
       widget.news = p;
       next();
-      return null;
     })
     .catch(next);
   };
