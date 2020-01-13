@@ -8,8 +8,8 @@ let we;
 before(function(callback) {
   this.slow(100);
 
-  testTools.copyLocalConfigIfNotExitst(projectPath, function() {
-    var We = require('we-core');
+  testTools.copyLocalSQLiteConfigIfNotExists(projectPath, function() {
+    const We = require('we-core');
     we = new We();
 
     testTools.init({}, we);
