@@ -106,12 +106,12 @@ module.exports = function M(we) {
       classMethods: {
         // suport to we.js url alias feature
         urlAlias(record) {
-          const slugPart2 = we.utils.stripTagsAndTruncate(
-            record.id + '-'+ record.title, 60
+          const slugPart2 = we.utils.slugifyAndTruncate (
+            record.title, 40
           );
 
           return {
-            alias: '/noticias/' + slugPart2,
+            alias: '/noticias/' + record.id + '-'+ slugPart2,
             target: '/news/' + record.id,
           };
         }
