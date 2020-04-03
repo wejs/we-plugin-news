@@ -107,7 +107,7 @@ module.exports = function M(we) {
         // suport to we.js url alias feature
         urlAlias(record) {
           const slugPart2 = we.utils.slugifyAndTruncate (
-            record.title, 40
+            record.title, 40, ''
           );
 
           return {
